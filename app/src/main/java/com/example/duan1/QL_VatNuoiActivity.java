@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -34,6 +35,21 @@ public class QL_VatNuoiActivity extends AppCompatActivity {
         dsVatnuoi = vatNuoiDao.getAllVatNuoi();
         adapter = new VatNuoiAdapter(this, dsVatnuoi);
         lvVatnuoi.setAdapter(adapter);
+        lvVatnuoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent =new Intent(QL_VatNuoiActivity.this, SuaVatNuoiActivity.class);
+                Bundle b = new Bundle();
+                b.putString("MAVATNUOI", dsVatnuoi.get(position).getMavatnuoi());
+                b.putString("TENVATNUOI", dsVatnuoi.get(position).getTenvatnuoi());
+                b.putString("LOAI", dsVatnuoi.get(position).getLoai());
+                b.putString("TENCHU", dsVatnuoi.get(position).getTenchu());
+                b.putString("SODIENTHOAI", dsVatnuoi.get(position).getSodienthoai());
+                b.putString("DACDIEM", dsVatnuoi.get(position).getDacdiem());
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
 
     }
 

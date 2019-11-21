@@ -16,10 +16,10 @@ public class QL_DichVuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ql__dich_vu);
     }@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add, menu);
+        getMenuInflater().inflate(R.menu.adddv, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    public void AddVatNuoi(MenuItem item) {
+    public void AddDichVu(MenuItem item) {
         Intent intent = new Intent(QL_DichVuActivity.this, ThemDichVuActivity.class);
         startActivity(intent);
     }

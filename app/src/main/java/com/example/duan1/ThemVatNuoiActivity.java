@@ -13,7 +13,13 @@ import com.example.duan1.dao.VatNuoiDao;
 import com.example.duan1.model.VatNuoi;
 
 public class ThemVatNuoiActivity extends AppCompatActivity {
-    EditText edMaVn, edTenVn, edLoai, edTenChu, edSdt, edDacdiem;
+    EditText edMaVn;
+    EditText edTenVn;
+    EditText edLoai;
+    EditText edTenChu;
+    EditText edSdt;
+    EditText edDacdiem;
+    String MaVn;
     VatNuoiDao vatNuoiDao;
     Button btnshow, btnhuy;
 
@@ -22,12 +28,28 @@ public class ThemVatNuoiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Thêm Vật Nuôi");
         setContentView(R.layout.activity_them_vat_nuoi);
-        init();
+        edMaVn = (EditText) findViewById(R.id.edmavn);
+        edTenVn = (EditText) findViewById(R.id.edtenvn);
+        edLoai = (EditText) findViewById(R.id.edloai);
+        edTenChu = (EditText) findViewById(R.id.edtenchu);
+        edSdt = (EditText) findViewById(R.id.edsdt);
+        edDacdiem = (EditText) findViewById(R.id.eddacdiem);
+        btnshow = findViewById(R.id.btnshow);
+        btnhuy=findViewById(R.id.btnhuy);
+        btnhuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThemVatNuoiActivity.this,QL_VatNuoiActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         btnshow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ThemVatNuoiActivity.this,QL_VatNuoiActivity.class);
+                Intent intent = new Intent(ThemVatNuoiActivity.this, QL_VatNuoiActivity.class);
                 startActivity(intent);
             }
         });
@@ -51,15 +73,13 @@ public class ThemVatNuoiActivity extends AppCompatActivity {
 
     }
 
-    public void init() {
-        edMaVn = findViewById(R.id.edmavn);
-        edTenVn = findViewById(R.id.edtenvn);
-        edLoai = findViewById(R.id.edloai);
-        edTenChu = findViewById(R.id.edtenchu);
-        edSdt = findViewById(R.id.edsdt);
-        edDacdiem = findViewById(R.id.eddacdiem);
-        btnshow=findViewById(R.id.btnshow);
+    public void updateVN(View view) {
+        if (vatNuoiDao.updateVatnuoi(MaVn, edTenVn.getText().toString(), edLoai.getText().toString(), edTenChu.getText().toString(), edSdt.getText().toString(), edDacdiem.getText().toString()) > 0) {
+            Toast.makeText(getApplicationContext(), "Sửa thành công", Toast.LENGTH_SHORT).show();
+
+        }
     }
+
 
     public int ValidateForm() {
         int check = 1;

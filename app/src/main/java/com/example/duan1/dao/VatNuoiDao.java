@@ -46,21 +46,33 @@ public class VatNuoiDao {
         return true;
     }
 
-    public int updateVatnuoi(VatNuoi vn) {
+    public int updateVatnuoi(String mavn,String tenvn,String loai,String tenchu,String sdt, String dacdiem) {
         ContentValues values = new ContentValues();
-        values.put("mavatnuoi", vn.getMavatnuoi());
-        values.put("ten", vn.getTenvatnuoi());
-        values.put("loai", vn.getLoai());
-        values.put("tenchu", vn.getTenchu());
-        values.put("sodienthoai", vn.getSodienthoai());
-        values.put("dacdiem", vn.getDacdiem());
-        int result = db.update(TABLE_NAME, values, "mavatnuoi=?", new String[]{vn.getMavatnuoi()});
+        values.put("ten", tenvn);
+        values.put("loai", loai);
+        values.put("tenchu", tenchu);
+        values.put("sodienthoai", sdt);
+        values.put("dacdiem", dacdiem);
+        int result = db.update(TABLE_NAME, values, "mavatnuoi=?", new String[]{mavn});
         if (result == 0) {
             return -1;
         }
         return 1;
     }
-
+    public int updatevn(VatNuoi nd) {
+        ContentValues values = new ContentValues();
+        values.put("ten", nd.getMavatnuoi());
+        values.put("loai", nd.getTenvatnuoi());
+        values.put("tenchu", nd.getLoai());
+        values.put("sodienthoai", nd.getTenchu());
+        values.put("dacdiem", nd.getSodienthoai());
+        values.put("dacdiem", nd.getDacdiem());
+        int result = db.update(TABLE_NAME, values, "mavatnuoi=?", new String[]{nd.getMavatnuoi()});
+        if (result == 0) {
+            return -1;
+        }
+        return 1;
+    }
     public int deleteVatnuoi(String mavatnuoi) {
         int result = db.delete(TABLE_NAME, "mavatnuoi=?", new String[]{mavatnuoi});
         if (result == 0)

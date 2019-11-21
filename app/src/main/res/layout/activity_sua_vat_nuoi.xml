@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg"
-    tools:context=".ThemDichVuActivity">
+    tools:context=".SuaVatNuoiActivity">
 
 
     <ImageView
@@ -24,40 +24,48 @@
         android:textSize="24dp"
         android:gravity="center"
         android:textColor="@color/colorAccent"
-        android:text="Thêm Dịch Vụ" />
+        android:text="Thêm Vật Nuôi" />
+
 
     <EditText
-        android:id="@+id/edMaDichVu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Mã Dịch Vụ" />
-
-    <EditText
-        android:id="@+id/edTenDichVu"
+        android:id="@+id/edtenvn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Tên Dịch Vụ" />
+        android:hint="Tên Vật Nuôi" />
 
     <EditText
-        android:id="@+id/edMoTa"
+        android:id="@+id/edloai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Mô Tả" />
+        android:hint="Loài" />
 
     <EditText
-        android:id="@+id/edGia"
+        android:id="@+id/edtenchu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Tên Chủ Nhân" />
+
+    <EditText
+        android:id="@+id/edsdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Số Điện Thoại" />
+
+    <EditText
+        android:id="@+id/eddacdiem"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Giá" />
+        android:hint="Đặc Điểm" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,9 +76,9 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="addNewDV"
+            android:onClick="updateVN"
             android:layout_weight="1"
-            android:text="Thêm" />
+            android:text="Sửa" />
 
         <Button
             android:id="@+id/button2"
@@ -81,7 +89,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnshow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hiển thị danh sách" />

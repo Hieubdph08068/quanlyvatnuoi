@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.duan1.dao.DichVuDao;
 import com.example.duan1.dao.VatNuoiDao;
 
 public class databasehelper extends SQLiteOpenHelper {
@@ -17,6 +18,7 @@ public class databasehelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(VatNuoiDao.SQL_VAT_NUOI);
+        db.execSQL(DichVuDao.SQL_DICH_VU);
 
 
     }
@@ -24,5 +26,6 @@ public class databasehelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(VatNuoiDao.SQL_VAT_NUOI);
+        db.execSQL(DichVuDao.SQL_DICH_VU);
     }
 }
